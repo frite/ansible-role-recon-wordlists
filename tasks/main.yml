@@ -1,0 +1,19 @@
+---
+- name: Recon Wordlists - Include OS-Specific Tasks
+  include: "{{ ansible_pkg_mgr }}.yml"
+
+- name: Recon Wordlists - Create /usr/local/share/wordlists
+  file:
+    path: /usr/local/share/wordlists
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Recon Wordlists - Fetch Wordlists
+  git:
+    repo: "{{ item.url }}"
+    dest: "/usr/local/share/wordlists/{{ item.name }}"
+    version: 'master'
+  loop: "{{ wordlists }}"
+  when: wordlists is defined

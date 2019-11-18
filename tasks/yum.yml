@@ -1,0 +1,14 @@
+---
+- name: Yum Tasks - Include variables
+  include_vars: "packages.yml"
+
+- name: Yum Tasks - Upgrade all packages
+  yum:
+    name: '*'
+    state: present
+    update_cache: true
+
+- name: Yum Tasks - Install required packages
+  yum:
+    name: "{{ packages }}"
+    state: present

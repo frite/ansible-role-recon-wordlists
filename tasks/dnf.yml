@@ -1,0 +1,14 @@
+---
+- name: DNF Tasks - Include distribution-specific variables
+  include_vars: "packages.yml"
+
+- name: DNF Tasks - Upgrade all packages  # noqa 403
+  dnf:
+    name: '*'
+    state: latest
+    update_cache: true
+
+- name: DNF Tasks - Install required packages
+  dnf:
+    name: "{{ packages }}"
+    state: present

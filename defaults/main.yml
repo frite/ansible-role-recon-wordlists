@@ -1,0 +1,6 @@
+---
+wordlists:
+  - name: 'SecLists'
+    url: 'https://github.com/danielmiessler/SecLists.git'
+  - name: 'fuzzdb'
+    url: 'https://github.com/fuzzdb-project/fuzzdb/'
