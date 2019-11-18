@@ -31,4 +31,5 @@ galaxy_info:
     - recon
     - security
 
-dependencies: []
+dependencies:
+  - frite.recon_package_manager

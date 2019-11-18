@@ -1,6 +1,12 @@
 ---
-- name: Recon Wordlists - Include OS-Specific Tasks
-  include: "{{ ansible_pkg_mgr }}.yml"
+- name: Recon Wordlists - Register required variables for host
+  set_fact:
+    "{{ ansible_pkg_mgr }}_packages":
+      - git
+
+- name: Recon Wordlists - Install required packages
+  include_role:
+    name: frite.recon_package_manager
 
 - name: Recon Wordlists - Create /usr/local/share/wordlists
   file:
