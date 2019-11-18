@@ -9,9 +9,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 def test_git_exists(host):
     """ Assert git is installed. """
-    f = host.exists('git')
 
-    assert f.exists
+    assert host.exists('git')
 
 
 def test_wordlist_path_exists(host):
