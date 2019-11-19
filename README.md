@@ -51,4 +51,4 @@ BSD
 Author Information
 ------------------
 
-e best way to reach out to me is through GH issues or ping me at [twitter](https://twitter.com/fr1t3).
+The best way to reach out to me is through GH issues or ping me at [twitter](https://twitter.com/fr1t3).
