@@ -2,6 +2,7 @@ Role Name
 =========
 
 [![Build Status](https://api.travis-ci.com/frite/ansible-role-recon-wordlists.svg?branch=master)](https://travis-ci.com/frite/ansible-role-recon-wordlist)
+
 Ansible role that installs wordlists.
 
 Requirements
