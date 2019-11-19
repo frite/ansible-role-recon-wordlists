@@ -1,30 +1,36 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+[![Build Status](https://api.travis-ci.com/frite/ansible-role-recon-wordlists.svg?branch=master)](https://travis-ci.com/frite/ansible-role-recon-wordlist)
+Ansible role that installs wordlists.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should
-be mentioned here. For instance, if the role uses the EC2 module, it may be a
-good idea to mention in this section that the boto package is required.
+It requires:
+* `frite.recon_package_manager`. Can be installed using `ansible-galaxy frite.recon_package_manager`.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
-be mentioned here as well.
+The only variable you will need is 
+`wordlists`.
+
+```
+wordlists:
+- name: 'SecLists'
+  url: 'https://github.com/danielmiessler/SecLists.git' 
+- name: 'fuzzdb'
+ url: 'https://github.com/fuzzdb-project/fuzzdb/'
+ ```
+ 
+ If you don't set up any variables, SecLists and Fuzzdb are going to be installed in `/usr/share/local/wordlists/`
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables that
-are used from other roles.
+It requires:
+* `frite.recon_package_manager`. Can be installed using `ansible-galaxy frite.recon_package_manager`.
 
 Example Playbook
 ----------------
@@ -34,7 +40,7 @@ passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
-         - { role: ansible-role-recon-wordlists, x: 42 }
+         - { role: ansible-role-recon-wordlists, wordlists: - name: 'blahblah', url: 'https://bluhbluh'}
 
 License
 -------
@@ -44,5 +50,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a
-website (HTML is not allowed).
+e best way to reach out to me is through GH issues or ping me at [twitter](https://twitter.com/fr1t3).
